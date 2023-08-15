@@ -1,0 +1,307 @@
+<div id="formulario_alumno">
+
+    <div class="modal fade" id="alumnos" tabindex="-1" aria-labelledby="swModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content" id="content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo_modal">REGISTRO DE ALUMNOS DEL SIBUMB</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="smartwizard_alumno" dir="rtl-">
+                        <ul class="nav nav-progress">
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <div class="num">1</div>
+                                    Información personal
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <span class="num">2</span>
+                                    Domicilio
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <span class="num">3</span>
+                                    Cuenta
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <span class="num">4</span>
+                                    Cargar documentos
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+                                <form id="form-alumno-1" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="nombre_alumno" class="form-label">Nombre
+                                            completo</label>
+                                        <input type="text" name="nombre_alumno" id="nombre_alumno" class="form-control"
+                                            placeholder="Nombre completo" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="ap_alumno" class="form-label">Apellido Paterno</label>
+                                        <input type="text" name="ap_alumno" id="ap_alumno" class="form-control"
+                                            placeholder="Apellido Paterno" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="am_alumno" class="form-label">Apellido Materno</label>
+                                        <input type="text" name="am_alumno" id="am_alumno" class="form-control"
+                                            placeholder="Apellido Materno" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="Fecha_Nacimiento_alumno" id="mensaje" class="form-label">Fecha de
+                                            Nacimiento</label>
+                                        <input type="date" name="Fecha_Nacimiento_alumno" id="Fecha_Nacimiento_alumno"
+                                            class="form-control" min="1980-01-01" max="2006-12-31" value="" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="telefono_alumno" class="form-label">Telefono</label>
+                                        <input type="text" name="telefono_alumno" id="telefono_alumno"
+                                            placeholder="Telefono" class="form-control" minlength="10" maxlength="10"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="CURP_alumno" class="form-label">CURP</label>
+                                        <input type="text" name="CURP_alumno" id="CURP_alumno" class="form-control"
+                                            minlength="18" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                                <form id="form-alumno-2" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="municipios_alumno" class="form-label">Municipio</label>
+                                        <select class="form-control" name="municipios_alumno" id="municipios_alumno"
+                                            required>
+                                            <option value="">Seleccionar una opción</option>
+                                            <% municipios.forEach(municipio=> { %>
+                                                <option value="<%= municipio.MUNICIPIO %>">
+                                                    <%= municipio.MUNICIPIO %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="cp_alumno" class="form-label">CP</label>
+                                        <select name="cp_alumno" id="cp_alumno" class="form-control" required>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="localidad_alumno" class="form-label">Localidad</label>
+                                        <select class="form-control" name="localidad_alumno" id="localidad_alumno"
+                                            required>
+                                            <option value="">Seleccionar una opción</option>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="colonia_alumno" class="form-label">Colonia</label>
+                                        <input type="text" name="colonia_alumno" id="colonia_alumno" class="form-control"
+                                            minlength="3" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="calle_alumno" class="form-label">Calle</label>
+                                        <input type="text" name="calle_alumno" id="calle_alumno" class="form-control"
+                                            minlength="3" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="NI_alumno" class="form-label">NI</label>
+                                        <input type="text" name="NI_alumno" id="NI_alumno" class="form-control"
+                                            minlength="1" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="NE_alumno" class="form-label">NE</label>
+                                        <input type="text" name="NE_alumno" id="NE_alumno" class="form-control"
+                                            minlength="1" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+
+                                <form id="form-alumno-3" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="correo_alumno" class="form-label">Correo</label>
+                                        <input type="email" name="correo_alumno" id="correo_alumno" class="form-control"
+                                            placeholder="Correo" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="pwd_alumno" class="form-label">Contraseña</label>
+                                        <input type="password" name="pwd_alumno" id="pwd_alumno" class="form-control"
+                                            placeholder="Contraseña" minlength="8" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="foto_alumno" class="form-label">Fotografia</label>
+                                        <input type="file" name="foto_alumno" id="foto_alumno" class="form-control"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="privilegios" class="form-label">Privilegios</label>
+                                        <select class="form-control" name="privilegios" id="privilegios">
+                                          <option value="Admin">Administrador Principal</option>
+                                          <option value="Sub_admin">Administrador Secundario</option>
+                                          <option value="Alumno">Alumno</option>
+                                        </select>
+                                      </div>
+                                </form>
+                            </div>
+                            <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
+
+                                <form id="form-alumno-4" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="curp" class="form-label">CURP</label>
+                                        <input type="file" name="curp_alumno" id="curp" class="form-control"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="acta" class="form-label">Acta de nacimiento</label>
+                                        <input type="file" name="acta_alumno" id="acta" class="form-control"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="solicitud_alumno" class="form-label">Solicitud de registro</label>
+                                        <input type="file" name="solicitud_alumno" id="solicitud_alumno" class="form-control"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="historial" class="form-label">Historial académico</label>
+                                        <input type="file" name="historial_alumno" id="historial" class="form-control"
+                                            required>
+                                      </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="prev-btn-alumno">Anterior</button>
+                    <button class="btn btn-primary" id="next-btn-alumno">Siguiente</button>
+                    <button class="btn btn-success" id="btnFinish" onclick="registrarAlumno()">Registrar</button>
+                    <button class="btn btn-danger" onclick="onCancel()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,256 @@
+<div id="formulario_administrador">
+
+    <div class="modal fade" id="administradores_act" tabindex="-1" aria-labelledby="swModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content" id="content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo_modal">ACTUALIZACIÓN DE ADMINISTRADORES DEL SIBUMB</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="smartwizard_admin_act" dir="rtl-">
+                        <ul class="nav nav-progress">
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <div class="num">1</div>
+                                    Información personal
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <span class="num">2</span>
+                                    Domicilio
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <span class="num">3</span>
+                                    Cuenta
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
+                                <form id="form-admin-act-1" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="nombre_admin_act" class="form-label">Nombre
+                                            completo</label>
+                                        <input type="text" name="nombre_admin_act" id="nombre_admin_act" class="form-control"
+                                            placeholder="Nombre completo" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="ap_admin_act" class="form-label">Apellido Paterno</label>
+                                        <input type="text" name="ap_admin_act" id="ap_admin_act" class="form-control"
+                                            placeholder="Apellido Paterno" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="am_admin_act" class="form-label">Apellido Materno</label>
+                                        <input type="text" name="am_admin_act" id="am_admin_act" class="form-control"
+                                            placeholder="Apellido Materno" minlength="3" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="Fecha_Nacimiento_admin_act" id="mensaje" class="form-label">Fecha de
+                                            Nacimiento</label>
+                                        <input type="date" name="Fecha_Nacimiento_admin_act" id="Fecha_Nacimiento_admin_act"
+                                            class="form-control" min="1980-01-01" max="2006-12-31" value="" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="telefono_admin_act" class="form-label">Telefono</label>
+                                        <input type="text" name="telefono_admin_act" id="telefono_admin_act"
+                                            placeholder="Telefono" class="form-control" minlength="10" maxlength="10"
+                                            required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="CURP_admin_act" class="form-label">CURP</label>
+                                        <input type="text" name="CURP_admin_act" id="CURP_admin_act" class="form-control"
+                                            minlength="18" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-2" class="tab-pane" role="tabpanel" aria-labelledby="step-2">
+                                <form id="form-admin-act-2" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="municipios_admin_act" class="form-label">Municipio</label>
+                                        <select class="form-control" name="municipios_admin_act" id="municipios_admin_act"
+                                            required>
+                                            <option value="">Seleccionar una opción</option>
+                                            <% municipios.forEach(municipio=> { %>
+                                                <option value="<%= municipio.MUNICIPIO %>">
+                                                    <%= municipio.MUNICIPIO %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="cp_admin_act" class="form-label">CP</label>
+                                        <select name="cp_admin_act" id="cp_admin_act" class="form-control" required>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="localidad_admin_act" class="form-label">Localidad</label>
+                                        <select class="form-control" name="localidad_admin_act" id="localidad_admin_act"
+                                            required>
+                                            <option value="">Seleccionar una opción</option>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="colonia_admin_act" class="form-label">Colonia</label>
+                                        <input type="text" name="colonia_admin_act" id="colonia_admin_act" class="form-control"
+                                            minlength="3" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="calle_admin_act" class="form-label">Calle</label>
+                                        <input type="text" name="calle_admin_act" id="calle_admin_act" class="form-control"
+                                            minlength="3" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="NI_admin_act" class="form-label">NI</label>
+                                        <input type="text" name="NI_admin_act" id="NI_admin_act" class="form-control"
+                                            minlength="1" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="NE_admin_act" class="form-label">NE</label>
+                                        <input type="text" name="NE_admin_act" id="NE_admin_act" class="form-control"
+                                            minlength="1" maxlength="100" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
+
+                                <form id="form-admin-act-3" class="row row-cols-2 ms-5 me-5 needs-validation" novalidate>
+                                    <div class="col">
+                                        <label for="correo_admin_act" class="form-label">Correo</label>
+                                        <input type="email" name="correo_admin_act" id="correo_admin_act" class="form-control"
+                                            placeholder="Correo" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="pwd_admin_act" class="form-label">Contraseña</label>
+                                        <input type="password" name="pwd_admin_act" id="pwd_admin_act" class="form-control"
+                                            placeholder="Contraseña" minlength="8" maxlength="50" required>
+                                        <div class="valid-feedback">
+                                            Correcto!
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Datos faltantantes o incorrectos.
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="privilegios" class="form-label">Privilegios</label>
+                                        <select class="form-control" name="privilegios_act" id="privilegios_act">
+                                          <option value="Admin">Administrador Principal</option>
+                                          <option value="Sub_admin_act">Administrador Secundario</option>
+                                          <option value="Alumno">Alumno</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label for="foto_admin_act">Fotografia</label>
+                                        <input id="usuarioId_act" name="usuarioId_act" hidden>
+                                        <input type="file" name="foto_admin_act" id="foto_admin_act" class="form-control" accept="image/*">
+                                    </div>
+                                    <div class="col">
+                                        <label for="imagem_preview" class="form-label">Visualizacion de fotografía</label>
+                                        <img id="imagen_preview" src="" alt="Vista previa" class="img-fluid">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="prev-btn-admin-act">Anterior</button>
+                    <button class="btn btn-primary" id="next-btn-admin-act">Siguiente</button>
+                    <button class="btn btn-success" id="actualizar-btn-admin-act">Actualizar</button>
+                    <button class="btn btn-danger" onclick="onCancel_act()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

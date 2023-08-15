@@ -1,0 +1,85 @@
+<%- include('head') %>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Logo de la umb" class="img-fluid  logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <div class="row align-items-center">
+                    <!-- Columna de la imagen -->
+                    <div class="col-auto">
+                        <!-- Colocar la etiqueta <img> aquí utilizando EJS -->
+                        <% if (user && user.Foto) { %>
+                            <!-- Construir la URL completa de la imagen -->
+                            <img src="/usuarios/<%= user.Foto %>" id="foto_user" alt="Fotografía del usuario">
+                            <% } else { %>
+                                <p>No hay fotografía disponible</p>
+                                <% } %>
+                    </div>
+                    <!-- Columna del ícono del botón del menú desplegable -->
+                    <div class="col">
+                        <span class="navbar-toggler-icon"></span>
+                    </div>
+                </div>
+
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-center" id="offcanvasNavbarLabel" style="color:white;"> </h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <h4 class="text-center" id="titulo_menu">UMB SAN JOSÉ DEL RINCÓN</h4>
+                    <h5 class="text-center" id="titulo_menu">ADMINISTRADOR: <%= user && user.Nombre_usuario ?
+                            (user.Nombre_usuario + ' ' + user.Apellido_Paterno).toUpperCase() : 'USUARIO' %>
+                    </h5>
+                    <div id="usuarioEnSesion" data-id="<%= user._id %>"></div>
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-home"></i>
+                                Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-users"></i> Usuarios</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <button type="button" class="dropdown-item" id="btnCargarUsuarios"
+                                    data-toggle="dropdown"><i class="fas fa-chalkboard-teacher"></i> Docentes</button>
+                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#alumnos"><i
+                                        class="fas fa-user-graduate"></i> Alumnos</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"> <i class="fas fa-file-alt"></i>
+                                Solicitudes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form action="/logout" method="POST">
+                                <button type="submit" class="nav-link active" aria-current="page"><i
+                                        class="fas fa-sign-out-alt"></i>Cerrar Sesion </button>
+                            </form>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="titulo">
+
+    </div>
+
+    <div id="actualizable">
+
+    </div>
+
+    <%- include('formulario_administrador', { municipios: municipios }) %>
+        <%- include('formulario_alumno', { municipios: municipios }) %>
+            <%- include('formulario_administrador_act', { municipios: municipios }) %>
+
+                <%- include('foot') %>
